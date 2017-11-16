@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+    http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <application>
+        <resource-bundle>
+            <base-name>Message</base-name>
+            <var>message</var>
+        </resource-bundle>
+        <locale-config>
+            <default-locale>en_US</default-locale>
+            <supported-locale>ro</supported-locale>
+        </locale-config>
+    </application>
+    <navigation-rule>
+        <from-view-id>/*</from-view-id>
+        <navigation-case>
+            <to-view-id>/login.xhtml?faces-redirect=true </to-view-id>
+            <from-outcome>goToLogin</from-outcome>
+        </navigation-case>
+        <navigation-case>
+            <to-view-id>/dashboard/index.xhtml?faces-redirect=true</to-view-id>
+            <from-outcome>goHome</from-outcome>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>goToSkillsPage</from-outcome>
+            <to-view-id>/dashboard/skills.xhtml?faces-redirect=true</to-view-id>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>goToStudentsPage</from-outcome>
+            <to-view-id>/dashboard/students.xhtml?faces-redirect=true</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>goToProjectsPage</from-outcome>
+            <to-view-id>/dashboard/projects.xhtml?faces-redirect=true</to-view-id>
+        </navigation-case>
+
+    </navigation-rule>
+
+
+</faces-config>

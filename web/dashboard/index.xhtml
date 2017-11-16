@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    <title>
+        #{message.TITLE}
+    </title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!--Import materialize.css-->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"/>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"/>
+
+
+</h:head>
+<h:body>
+    <ui:composition template="../WEB-INF/templates/page.xhtml">
+        <ui:define name="top">
+            <h3 class="center-align">
+                #{message.home_welcome}
+            </h3>
+        </ui:define>
+        <ui:define name="content">
+            <div class="container">
+                <div class="row">
+                    <h:form>
+                        <ul>
+
+                            <li>
+                                #{message.go_to}: <h:commandLink value="#{message.students_page}"
+                                                                 action="goToStudentsPage"/>
+                            </li>
+                            <li>
+                                #{message.go_to}: <h:commandLink value="#{message.skills_page}"
+                                                                 action="goToSkillsPage"/>
+                            </li>
+                            <li>
+                                #{message.go_to}: <h:commandLink value="#{message.projects_page}"
+                                                                 action="goToProjectsPage"/>
+                            </li>
+                        </ul>
+                    </h:form>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>
