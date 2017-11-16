@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <div id="modal#{model}" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+
+                        <h3 class="center-align">#{model} </h3>
+                        <h:form class="col s12" >
+                            <ui:repeat value="${bean.getAttributes()}" var="attribute">
+                                <div class='row'>
+                                    <div class='input-field col s12'>
+                                        <label for='${model}_${attribute}'>#{attribute}</label>
+                                        <h:inputText class="validate"  value="#{bean.entity[attribute]}"></h:inputText>
+                                    </div>
+                                </div>
+
+                            </ui:repeat>
+                            <h:commandButton value="Add"
+                                             type="button"
+                                                onclick="alert('here')"
+                                             action="#{bean[addMethod]}"></h:commandButton>
+                        </h:form>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+
+</f:view>
+</html>

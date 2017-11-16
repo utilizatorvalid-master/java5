@@ -7,37 +7,71 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-<!--Import materialize.css-->
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!--Import materialize.css-->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"/>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"/>
+    <script>
+        $(document).ready(function () {
+            // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+            $('.modal').modal();
+        });
+    </script>
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
 
-<!--Let browser know website is optimized for mobile-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"/>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"/>
+        main {
+            flex: 1 0 auto;
+        }
+    </style>
 </h:head>
 
 <f:view>
     <h:body>
-        <ui:insert name="nav-bar">
-            <ui:include src="/WEB-INF/fragments/menuBar.xhtml"/>
-        </ui:insert>
 
-        <ui:insert name="top">
-            <ui:include src="/WEB-INF/fragments/header.xhtml"/>
-        </ui:insert>
+        <header>
+            <ui:insert name="nav-bar">
+                <ui:include src="/WEB-INF/fragments/menuBar.xhtml"/>
+            </ui:insert>
+            <ui:insert name="top">
+                <ui:include src="/WEB-INF/fragments/header.xhtml"/>
+            </ui:insert>
+        </header>
+        <main>
+            <div class="container">
+                <div id="modal_container">
+                    <ui:include src="/WEB-INF/fragments/editView.xhtml">
+                        <ui:param name="model" value="Student"/>
+                        <ui:param name="addMethod" value="${crudStudentBean.addEntity}" />
+                        <ui:param name="bean" value="${crudStudentBean}"/>
+                    </ui:include>
+                    <ui:include src="/WEB-INF/fragments/editView.xhtml">
+                        <ui:param name="model" value="Skill"/>
+                    </ui:include>
+                    <ui:include src="/WEB-INF/fragments/editView.xhtml">
+                        <ui:param name="model" value="Project"/>
+                    </ui:include>
+                </div>
 
-
-        <div id="content" class="center_content">
-            <ui:insert name="content">Content</ui:insert>
-        </div>
+                <div id="content" class="center_content">
+                    <ui:insert name="content">Content</ui:insert>
+                </div>
+            </div>
+        </main>
 
         <ui:insert name="bottom">
             <ui:include src="/WEB-INF/fragments/footer.xhtml"/>
         </ui:insert>
+
 
     </h:body>
 </f:view>

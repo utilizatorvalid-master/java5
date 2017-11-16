@@ -12,15 +12,15 @@
     <p:menubar>
         <p:submenu label="Students" icon="ui-icon-document">
             <p:menuitem value="#{message.go_to} #{message.students_page}" action="goToStudentsPage" ajax="false"/>
-            <p:menuitem value="#{message.add} #{message.student_enitity}" ajax="false"/>
+            <p:menuitem value="#{message.add} #{message.student_enitity}" onclick="$('#modalStudent').modal('open');"/>
         </p:submenu>
         <p:submenu label="Skills" icon="ui-icon-pencil">
             <p:menuitem value="#{message.go_to} #{message.skills_page}" action="goToSkillsPage" ajax="false"/>
-            <p:menuitem value="#{message.add} #{message.skill_enitity}" ajax="false"/>
+            <p:menuitem value="#{message.add} #{message.skill_enitity}" onclick="$('#modalSkill').modal('open');" />
         </p:submenu>
         <p:submenu label="Projects" icon="ui-icon-help">
             <p:menuitem value="#{message.go_to} #{message.projects_page}" action="goToProjectsPage" ajax="false"/>
-            <p:menuitem value="#{message.add} #{message.project_entity}" ajax="false"/>
+            <p:menuitem value="#{message.add} #{message.project_entity}" onclick="$('#modalProject').modal('open');"/>
         </p:submenu>
         <f:facet name="options">
             <p:commandLink type="button"

@@ -19,7 +19,7 @@ public class ConnectionUtil {
     private ConnectionUtil() throws SQLException, NamingException {
         Context initialContext = new InitialContext();
         Context envContex = (Context) initialContext.lookup("java:comp/env");
-        this.dataSource = (DataSource) envContex.lookup("jdbc/postgres");
+        this.dataSource = (DataSource) envContex.lookup("jdbc/mysql");
         this.connection = dataSource.getConnection();
         System.out.println(this.dataSource.toString());
 
